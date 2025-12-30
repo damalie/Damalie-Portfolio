@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Project - Damalie Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #141824;
+            --bg-card: #1a1f2e;
+            --accent-primary: #00d9ff;
+            --accent-secondary: #7c3aed;
+            --accent-gradient: linear-gradient(135deg, #00d9ff 0%, #7c3aed 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0c0;
+            --border-color: rgba(0, 217, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-primary);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-secondary);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 50px) scale(0.9); }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(10, 14, 23, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary) !important;
+        }
+
+        /* Cards */
+        .card-custom {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+        }
+
+        .card-custom > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 2px solid var(--accent-primary);
+            color: var(--accent-primary);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            margin-top: 5rem;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Nkiinzi Cynthia Damalie</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: var(--border-color);">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section>
+        <div class="container">
+            <a href="index.html#projects" class="back-button"><i class="fas fa-arrow-left me-2"></i>Back to Projects</a>
+
+            <h1 class="section-title mb-4"><span class="gradient-text">Natural Language Processing</span></h1>
+            <p class="text-secondary mb-5" style="font-size: 1.1rem; max-width: 800px;">
+                Advanced text classification and sentiment analysis pipelines leveraging transformer models for deep document understanding and semantic analysis.
+            </p>
+
+            <div class="card-custom mb-4">
+                <h4 class="mb-3" style="color: var(--accent-primary);">Project Overview</h4>
+                <p class="text-secondary" style="line-height: 1.8;">
+                    This natural language processing project demonstrates expertise in modern NLP techniques, from traditional feature extraction to state-of-the-art transformer models. I developed end-to-end pipelines for text classification and sentiment analysis, enabling automated understanding and categorization of unstructured text data at scale.
+                </p>
+            </div>
+
+            <div class="card-custom mb-4">
+                <h4 class="mb-3" style="color: var(--accent-primary);">Key Achievements</h4>
+                <ul class="text-secondary" style="line-height: 1.8;">
+                    <li><strong>Text Classification Pipeline:</strong> Built robust end-to-end systems for categorizing documents across multiple categories with high accuracy</li>
+                    <li><strong>Sentiment Analysis:</strong> Developed models capable of fine-grained sentiment detection (positive, negative, neutral, mixed)</li>
+                    <li><strong>Transformer Models:</strong> Implemented BERT, RoBERTa, and DistilBERT for enhanced contextual understanding</li>
+                    <li><strong>Text Preprocessing:</strong> Applied tokenization, stemming, lemmatization, and custom domain-specific cleaning</li>
+                    <li><strong>Transfer Learning:</strong> Leveraged pre-trained models and fine-tuned them on domain-specific datasets</li>
+                    <li><strong>Evaluation & Deployment:</strong> Comprehensive testing with precision/recall metrics and production-ready inference pipelines</li>
+                </ul>
+            </div>
+
+            <div class="card-custom mb-4">
+                <h4 class="mb-3" style="color: var(--accent-primary);">Technical Implementation</h4>
+                <div style="background: rgba(0, 217, 255, 0.05); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+                    <p class="text-secondary mb-0"><strong style="color: var(--accent-primary);">NLP Libraries & Tools:</strong> Transformers (Hugging Face), NLTK, spaCy, TextBlob, Gensim, Scikit-learn</p>
+                </div>
+                <div style="background: rgba(0, 217, 255, 0.05); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem;">
+                    <p class="text-secondary mb-0"><strong style="color: var(--accent-primary);">Deep Learning Frameworks:</strong> PyTorch, TensorFlow/Keras for training and fine-tuning transformer models</p>
+                </div>
+                <div style="background: rgba(0, 217, 255, 0.05); padding: 1.5rem; border-radius: 10px;">
+                    <p class="text-secondary mb-0"><strong style="color: var(--accent-primary);">Feature Engineering:</strong> Word embeddings (Word2Vec, GloVe, FastText), TF-IDF vectorization, attention mechanisms</p>
+                </div>
+            </div>
+
+            <div class="card-custom">
+                <h4 class="mb-3" style="color: var(--accent-primary);">Business Impact</h4>
+                <ul class="text-secondary" style="line-height: 1.8;">
+                    <li><strong>Automated Understanding:</strong> Extract insights from large volumes of unstructured text data automatically</li>
+                    <li><strong>Customer Intelligence:</strong> Analyze sentiment and feedback to understand customer needs and pain points</li>
+                    <li><strong>Content Organization:</strong> Automatically categorize and route documents for efficient processing</li>
+                    <li><strong>Real-time Analytics:</strong> Deploy models for streaming text analysis and real-time decision support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
